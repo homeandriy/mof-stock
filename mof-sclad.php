@@ -12,6 +12,7 @@
  * @since             1.0.0
  * @package           Mof_Sclad
  *
+ *
  * @wordpress-plugin
  * Plugin Name:       Maintenance of equipment
  * Plugin URI:        https://webbooks.com.ua/plugins
