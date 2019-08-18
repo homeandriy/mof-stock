@@ -43,6 +43,7 @@ define( 'MOF_SCLAD_VERSION', '1.0.0' );
  */
 function activate_mof_sclad() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-mof-sclad-activator.php';
+
 	Mof_Sclad_Activator::activate();
 }
 
