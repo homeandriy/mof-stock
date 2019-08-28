@@ -1,8 +1,12 @@
 <?php
 $ordersInit = new MOF_Order();
+
 $orders = $ordersInit->get();
 $d = date('d-m-Y');
 $i = 1;
+
+$data = $ordersInit->get_order(2);
+$_nomenclature = new MOF_Order_Nomenclature( $data) ;
 ?>
 
 <diw class="wrap">
@@ -47,6 +51,7 @@ $i = 1;
 		</tbody>
 	</table>
 	<pre>
-		<?php print_r($orders);?>
+        <?php print_r($data);?>
+		<?php print_r($_nomenclature->getOrderNomenclature());?>
 	</pre>
 </diw>

@@ -21,8 +21,9 @@ class MOF_Order
     private $receivedComments;
     private $userComments;
     private $status;
-    private $state; //active or inactive
+    private $state;
 	private $fields;
+	protected $order;
 
     public function __construct()
     {
@@ -69,6 +70,14 @@ class MOF_Order
     public function get ()
     {
 	    return $this->queryBuilder->getOrders();
+    }
+    public function get_id() {
+    	return $this->orderId;
+    }
+    public function get_order( $orderID )
+    {
+	    $this->order = $this->queryBuilder->getOrder( $orderID );
+	    return $this->order;
     }
 
 }

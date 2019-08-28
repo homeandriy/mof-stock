@@ -36,9 +36,15 @@ class MOF_QueryBuilder
         $res = $wpdb->get_row("SELECT * FROM {$this->tableNomenclature} WHERE name = '{$name}'");
         return $res;
     }
-    public function getOrderNomenclature ( $orderID ){
+    public function getOrderNomenclature ($order_id)
+    {
+	    global $wpdb;
+    	return $wpdb->get_results($wpdb->prepare("SELECT * FROM {$this->serviceOrders} as num LEFT JOIN {$this->tableNomenclature} as base_nom ON base_nom.id = num.nomenclatureID WHERE `orderID` = %d", $order_id));
+    }
+    public function getOrder( $orderID )
+    {
         global $wpdb;
-        return $wpdb->get_results($wpdb->prepare("SELECT * FROM {$this->serviceOrders} WHERE order_id = ?", [$orderID]));
+        return $wpdb->get_row( "SELECT * FROM {$this->tableOrders} WHERE orderId = '{$orderID}'" );
     }
     public function insert_order($data)
     {
